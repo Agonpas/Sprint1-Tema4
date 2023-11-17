@@ -30,7 +30,7 @@ class Cine {
     public function getPeliculas() {
         return $this->peliculas;
     }
-    /*Función mara mostrar todos los datos*/
+    /*Función para mostrar todos los datos*/
     public function mostrarDatos() {
         echo PHP_EOL . "+ El cine " . $this->getNombre() . " en la población " . $this->getPoblacion() . " tiene en cartelera: " . PHP_EOL;
         foreach ($this->getPeliculas() as $pelicula) {
@@ -39,14 +39,13 @@ class Cine {
     }
     /* Obtener película con mayor duración de cada cine*/
     public function obtenerPeliculaMasLarga() {
-        $peliculaMasLarga = null;
-        foreach ($this->peliculas as $pelicula) {
-            if (!$peliculaMasLarga || $pelicula->getDuracion() > $peliculaMasLarga->getDuracion()) {
-                $peliculaMasLarga = $pelicula;
+        $peliculaMasLarga = null; //creamos la variable para almacenar la pelicula más larga e igualamos a null
+        foreach ($this->peliculas as $pelicula) {// recorremos peliculas
+            if (!$peliculaMasLarga || $pelicula->getDuracion() > $peliculaMasLarga->getDuracion()) { //compara las peliculas con la más larga encontrada
+                $peliculaMasLarga = $pelicula; //en caso de que la condición anteriro se cumpla almacena la pelicula en pelicula más grande
             }
         }
-
-        return $peliculaMasLarga;
+        return $peliculaMasLarga; //la función devuelve la pelicula más larga
     }
 }   
 ?>

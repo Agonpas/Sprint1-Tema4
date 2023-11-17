@@ -7,7 +7,7 @@ $cine1 = new Cine("Bosque", "Barcelona");
 $cine2 = new Cine("Yelmo", "Sant Cugat");
 $cine3 = new Cine("Parc Vallés", "Terrassa");
 /* añadimos peliculas*/
-$cine1->agregarPeliculas(new Pelicula("Blade Runner", "117", "Rdley Scott"));
+$cine1->agregarPeliculas(new Pelicula("Blade Runner", "117", "Ridley Scott"));
 $cine1->agregarPeliculas(new Pelicula("The Thing", "105", "John Carpenter"));
 $cine2->agregarPeliculas(new Pelicula("Taxi Driver", "113", "Martin Scorsese"));
 $cine2->agregarPeliculas(new Pelicula("Amanece que no es poco", "106", "Jose Luis Cuerda"));
@@ -66,7 +66,7 @@ function buscarPeliculaLarga($cines){
 /*creamos función para buscar directores*/
 function buscarPorDirector($cines, $nombreDirector){ // el método recibe el array de cines y el nombre que buscamos entrado por teclado
     echo PHP_EOL . "Buscando películas del director " . $nombreDirector . ":" . PHP_EOL;
-    foreach ($cines as $cine) { //primer array recorre los cines
+    foreach ($cines as $cine) { //primer foreach recorre los cines
         $peliculasDelDirector = array(); //creamos array para almacenar los resultados que coinciden con la busqueda
         foreach ($cine->getPeliculas() as $pelicula) { //recorremos las peliculas de cada cine
             if ($pelicula->getDirector() == $nombreDirector) { //comparamos el atributo director con el nombre buscado en caso de coincidencia
@@ -81,8 +81,5 @@ function buscarPorDirector($cines, $nombreDirector){ // el método recibe el arr
         }
     }
 }
-
-
-
 
 ?>

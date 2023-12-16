@@ -3,7 +3,7 @@ include('Dado.php');
 
 
 do {
-    echo " 0-No lanzar mas dados \n 1-Lanzar un dado. \n 2-Lanzar cinco dados \n";
+    echo " 0-No lanzar mas dados \n 1-Lanzar un dado. \n 2-Lanzar cinco dados. \n 3-Elegir numero de dados a tirar. \n";
     $eleccion = fgets(STDIN);
     switch ($eleccion) {
         case 0:
@@ -16,6 +16,10 @@ do {
     
         case 2:
             lanzarCincoDados();
+            break;
+
+        case 3:
+            elegirNumeroDados();
             break;
     
         default:
@@ -50,6 +54,15 @@ function lanzarCincoDados() {
         $dado->tirarDado();
         $numeroDado += 1;
         echo "El resultado del dado " . $numeroDado . " es: " . $dado->verTirada() . PHP_EOL;
+    }
+}
+function elegirNumeroDados() {
+    echo "¿Cuantos dados quieres tirar?";
+    $numeroDados = trim(fgets(STDIN));
+    for ($i = 1; $i <= $numeroDados; $i++) {
+        $dado = new Dado;
+        $dado ->tirarDado();
+        echo "La tirada del dado " . $i . "- es " . $dado->verTirada() . PHP_EOL;
     }
 }
 ?>
